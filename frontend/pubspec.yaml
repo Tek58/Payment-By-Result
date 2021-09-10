@@ -31,13 +31,13 @@ dependencies:
   # flutter_secure_storage: ^4.2.1
   intl: ^0.17.0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
   auto_route_generator: ^2.1.0
   build_runner: ^2.1.1
   mockito: ^5.0.15
+  integration_test: ^1.0.1
   freezed: ^0.14.2
   injectable_generator: ^1.0.4
   json_serializable: ^4.1.4

@@ -12,6 +12,7 @@ class RecordCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Card(
+        key: Key("recentUser"),
         elevation: 0.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),

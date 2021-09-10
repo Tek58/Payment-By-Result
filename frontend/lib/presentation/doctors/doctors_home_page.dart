@@ -19,7 +19,7 @@ class DoctorsHomePage extends StatelessWidget {
             length: 2,
             key: Key("tabview"),
             tabBarView:
-                TabBarView(children: [PatientsListView(), RecordsListView()]),
+                TabBarView(children: [PatientsListView(key: Key("myPaitents"),), RecordsListView(key: Key("recents"),)]),
             tabs: ['My patients', 'Recents'],
             headerText: 'Home',
             actionBar: ActionBar(

@@ -11,6 +11,7 @@ import 'package:frontend/presentation/doctors/doctors_home_page.dart';
 import 'package:frontend/presentation/doctors/patient_detail_page.dart';
 import 'package:frontend/presentation/patients/patients_home_page.dart';
 import 'package:frontend/presentation/sign_in/sign_in_page.dart';
+import 'package:frontend/presentation/sign_up/sign_up_new_to_system_page.dart';
 import 'package:frontend/presentation/sign_up/sign_up_step_one_page.dart';
 import 'package:frontend/presentation/sign_up/widgets/sign_up_new_to_app_form.dart';
 import 'package:integration_test/integration_test.dart';
@@ -77,7 +78,7 @@ void main() {
       await tester.pumpWidget(SignUpStepOnePage());
 
       final inputEmail = "test@test.com";
-      
+
       await tester.enterText(find.byKey(Key("Email")), inputEmail);
 
       await tester.tap(find.byKey(Key("signup")));
@@ -86,13 +87,15 @@ void main() {
       expect(find.byType(SignUpStepOnePage), findsNothing);
       expect(find.byType(SignUpForNewToAppForm), findsOneWidget);
       expect(find.byKey(Key("Password")), findsOneWidget);
-      
+
       final inputPassword = "testPassword";
       await tester.enterText(find.byKey(Key("Password")), inputPassword);
 
       await tester.tap(find.byKey(Key("updatePassword")));
       await tester.pumpAndSettle();
 
+      expect(find.byType(SignInPage), findsNothing);
+      expect(find.byType(ProfilePage), findsOneWidget);
     },
   );
 
@@ -101,23 +104,30 @@ void main() {
     (WidgetTester tester) async {
       await tester.pumpWidget(SignUpStepOnePage());
 
-      final inputEmail = "test@test.com";
-      
+      final inputEmail = "test1@test.com";
+
       await tester.enterText(find.byKey(Key("Email")), inputEmail);
 
       await tester.tap(find.byKey(Key("signup")));
       await tester.pumpAndSettle();
 
       expect(find.byType(SignUpStepOnePage), findsNothing);
-      expect(find.byType(SignUpForNewToAppForm), findsOneWidget);
-      expect(find.byKey(Key("Password")), findsOneWidget);
-      
+      expect(find.byType(SignUpForNewToSystemPage), findsOneWidget);
+
+      final inmptname = "testNAme";
+      final inputDateTime = "10-10-2021";
+      final inputPhoneNumber = "+251236478945";
       final inputPassword = "testPassword";
+      await tester.enterText(find.byKey(Key("Name")), inmptname);
+      await tester.enterText(find.byKey(Key("DateOfBirth")), inputDateTime);
+      await tester.enterText(find.byKey(Key("PhoneNumber")), inputPhoneNumber);
       await tester.enterText(find.byKey(Key("Password")), inputPassword);
 
-      await tester.tap(find.byKey(Key("updatePassword")));
+      await tester.tap(find.byKey(Key("submit")));
       await tester.pumpAndSettle();
 
+      expect(find.byType(SignInPage), findsNothing);
+      expect(find.byType(ProfilePage), findsOneWidget);
     },
   );
 }

@@ -25,12 +25,14 @@ class SignUpForNewToSystemForm extends StatelessWidget {
             height: 35.0,
           ),
           CustomTextField(
+            key: Key("Name"),
             hintText: 'Name',
           ),
           SizedBox(
             height: 10.0,
           ),
           DateInputField(
+            key: Key("DateOfBirth"),
             hintText: 'Date of birth',
             controller: TextEditingController(),
           ),
@@ -38,18 +40,21 @@ class SignUpForNewToSystemForm extends StatelessWidget {
             height: 10.0,
           ),
           CustomTextField(
+            key: Key("PhoneNumber"),
             hintText: 'Phone number',
           ),
           SizedBox(
             height: 10.0,
           ),
           PasswordField(
+            key: Key("Password"),
             hintText: 'Password',
           ),
           SizedBox(
             height: 25.0,
           ),
           CtaButton(
+            key: Key("submit"),
             actionText: 'Submit',
             onPressed: () {},
           ),

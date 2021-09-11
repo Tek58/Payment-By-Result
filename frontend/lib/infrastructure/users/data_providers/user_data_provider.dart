@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 
@@ -65,9 +67,9 @@ class UsersDataProvider {
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
-      print('object');
-      print(jsonDecode(response.body));
-      return User.fromJson(jsonDecode(response.body));
+      final responseData = jsonDecode(response.body);
+      print(User.fromJson(responseData));
+      return User.fromJson(responseData);
     } else {
       throw Exception("Fetching User by Id failed");
     }
@@ -87,19 +89,22 @@ class UsersDataProvider {
   }
 
   Future<List<User>> fetchAll() async {
-    List<User> users = [];
+    // List<User> users = [];
     final response = await http.get(Uri.parse(_baseUrl));
     if (response.statusCode == 200) {
-      // final users = jsonDecode(response.body);
-      // // logger.i([0]("users")["name"]);
+      // users = jsonDecode(response.body);
+      return compute(parseUsers, response.body);
+
+
+      // logger.i("hhhddd");
       // logger.i((response.body));
       // return User.fromJson(users);
-      // // return parseUsers(response.body);
+      // return parseUsers(response.body);
 
-      final responceData = response.body as List;
-      logger.i(responceData);
-      users = responceData.map((e) => User.fromJson(e)).toList();
-      return users;
+      // final responseData = jsonDecode(response.body) as List;
+      // users = responseData.map((e) => User.fromJson(e)).toList();
+      // logger.i(users);
+      // return users;
     } else {
       throw Exception("Could not fetch users");
     }

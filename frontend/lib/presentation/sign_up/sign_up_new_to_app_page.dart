@@ -15,7 +15,9 @@ class SignUpForNewToAppPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.05,
           ),
-          child: SignUpForNewToAppForm(),
+          child: SignUpForNewToAppForm(
+            key: Key("SignUpForNewToAppForm"),
+          ),
         ),
       ),
     );

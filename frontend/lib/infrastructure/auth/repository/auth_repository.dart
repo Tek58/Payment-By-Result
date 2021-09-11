@@ -6,10 +6,14 @@ class AuthRepository {
   final AuthDataProvider dataProvider;
   AuthRepository(this.dataProvider);
 
-  Future<SignUp> create(SignUp user,String url) async {
-    return this.dataProvider.create(user, url);
+  Future<SignUp> register(SignUp user,String url) async {
+    return this.dataProvider.register(user, url);
   }
   Future<SignIn> login(SignIn user,String url) async {
     return this.dataProvider.login(user, url);
+  }
+
+  Future<String> emailRegistered(String email) async {
+    return this.dataProvider.emailRegistered(email);
   }
 }

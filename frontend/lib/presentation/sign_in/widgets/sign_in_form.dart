@@ -17,18 +17,20 @@ class SignInForm extends StatelessWidget {
             height: 15.0,
           ),
           CustomTextField(
+            key: Key("EmailTextField"),
             hintText: 'Email',
           ),
           SizedBox(
             height: 10.0,
           ),
           PasswordField(
-            hintText: 'Password',
-          ),
+            key: Key("PasswordInputField"),
+            hintText: 'Password'),
           SizedBox(
             height: 25.0,
           ),
           CtaButton(
+            key: Key("SignInBtn"),
             actionText: 'Sign In',
             onPressed: () {},
           ),

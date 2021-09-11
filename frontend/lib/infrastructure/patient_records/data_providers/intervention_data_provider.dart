@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 
@@ -52,14 +53,15 @@ class InterventionsDataProvider {
   }
 
   Future<List<Intervention>> fetchAll() async {
-    List<Intervention> interventions = [];
+    // List<Intervention> interventions = [];
     final response = await http.get(Uri.parse(_baseUrl));
     if (response.statusCode == 200) {
+      return compute(parseInterventions, response.body);
 
-      final responceData = response.body as List;
-      logger.i(responceData);
-      interventions = responceData.map((e) => Intervention.fromJson(e)).toList();
-      return interventions;
+      // final responceData = response.body as List;
+      // logger.i(responceData);
+      // interventions = responceData.map((e) => Intervention.fromJson(e)).toList();
+      // return interventions;
 
 
       

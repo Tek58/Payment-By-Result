@@ -15,7 +15,9 @@ class SignUpForNewToSystemPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.05,
           ),
-          child: SignUpForNewToSystemForm(),
+          child: SignUpForNewToSystemForm(
+            key: Key("SignUpForNewToSystemForm"),
+          ),
         ),
       ),
     );

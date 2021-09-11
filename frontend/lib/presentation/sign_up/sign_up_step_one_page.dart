@@ -14,7 +14,9 @@ class SignUpStepOnePage extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.05,
           ),
-          child: SignUpStepOneForm(),
+          child: SignUpStepOneForm(
+            key: Key("SignUpStepOneForm"),
+          ),
         ),
       ),
     );

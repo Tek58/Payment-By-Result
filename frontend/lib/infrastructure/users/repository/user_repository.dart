@@ -24,6 +24,9 @@ class UserRepository {
   Future<List<User>> fetchAll(String) async {
     return this.dataProvider.fetchAll();
   }
+  // Future<User> fetchAll(String) async {
+  //   return this.dataProvider.fetchAll();
+  // }
   Future<User> search() async {
     return this.dataProvider.search();
   }

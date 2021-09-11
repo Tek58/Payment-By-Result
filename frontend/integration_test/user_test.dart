@@ -16,10 +16,10 @@ void main() {
       final inputEmail = "test@test.com";
       final inputPassword = "testPassword";
 
-      await tester.enterText(find.byKey(Key("Email")), inputEmail);
-      await tester.enterText(find.byKey(Key("Password")), inputPassword);
+      await tester.enterText(find.byKey(Key("EmailTextField")), inputEmail);
+      await tester.enterText(find.byKey(Key("PasswordInputField")), inputPassword);
 
-      await tester.tap(find.byKey(Key("Login")));
+      await tester.tap(find.byKey(Key("SignInBtn")));
       await tester.pumpAndSettle();
 
       expect(find.byType(SignInPage), findsNothing);

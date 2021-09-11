@@ -25,6 +25,7 @@ class SignUpStepOneForm extends StatelessWidget {
             height: 25.0,
           ),
           CtaButton(
+            key: Key("signup"),
             actionText: 'Sign Up',
             onPressed: () {},
           ),

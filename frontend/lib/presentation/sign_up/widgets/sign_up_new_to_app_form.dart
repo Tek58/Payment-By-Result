@@ -21,12 +21,14 @@ class SignUpForNewToAppForm extends StatelessWidget {
             height: 35.0,
           ),
           PasswordField(
+            key: Key("Password"),
             hintText: 'New password',
           ),
           SizedBox(
             height: 25.0,
           ),
           CtaButton(
+            key: Key("updatePassword"),
             actionText: 'Update password',
             onPressed: () {},
           ),
